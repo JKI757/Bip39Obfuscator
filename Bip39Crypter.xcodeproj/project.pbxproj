@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		033835352617FEE100D6725C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835342617FEE100D6725C /* AppDelegate.swift */; };
+		033835372617FEE100D6725C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835362617FEE100D6725C /* ViewController.swift */; };
+		0338353A2617FEE100D6725C /* Bip39Crypter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 033835382617FEE100D6725C /* Bip39Crypter.xcdatamodeld */; };
+		0338353C2617FEE200D6725C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0338353B2617FEE200D6725C /* Assets.xcassets */; };
+		0338353F2617FEE200D6725C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0338353D2617FEE200D6725C /* Main.storyboard */; };
+		0338354B2617FEE200D6725C /* Bip39CrypterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338354A2617FEE200D6725C /* Bip39CrypterTests.swift */; };
+		033835562617FEE200D6725C /* Bip39CrypterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835552617FEE200D6725C /* Bip39CrypterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		033835472617FEE200D6725C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 033835292617FEE100D6725C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 033835302617FEE100D6725C;
+			remoteInfo = Bip39Crypter;
+		};
+		033835522617FEE200D6725C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 033835292617FEE100D6725C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 033835302617FEE100D6725C;
+			remoteInfo = Bip39Crypter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		033835312617FEE100D6725C /* Bip39Crypter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bip39Crypter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		033835342617FEE100D6725C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		033835362617FEE100D6725C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		033835392617FEE100D6725C /* Bip39Crypter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bip39Crypter.xcdatamodel; sourceTree = "<group>"; };
+		0338353B2617FEE200D6725C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0338353E2617FEE200D6725C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		033835402617FEE200D6725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		033835412617FEE200D6725C /* Bip39Crypter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bip39Crypter.entitlements; sourceTree = "<group>"; };
+		033835462617FEE200D6725C /* Bip39CrypterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bip39CrypterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0338354A2617FEE200D6725C /* Bip39CrypterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip39CrypterTests.swift; sourceTree = "<group>"; };
+		0338354C2617FEE200D6725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		033835512617FEE200D6725C /* Bip39CrypterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bip39CrypterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		033835552617FEE200D6725C /* Bip39CrypterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip39CrypterUITests.swift; sourceTree = "<group>"; };
+		033835572617FEE200D6725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0338352E2617FEE100D6725C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		033835432617FEE200D6725C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0338354E2617FEE200D6725C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033835282617FEE100D6725C = {
+			isa = PBXGroup;
+			children = (
+				033835332617FEE100D6725C /* Bip39Crypter */,
+				033835492617FEE200D6725C /* Bip39CrypterTests */,
+				033835542617FEE200D6725C /* Bip39CrypterUITests */,
+				033835322617FEE100D6725C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		033835322617FEE100D6725C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				033835312617FEE100D6725C /* Bip39Crypter.app */,
+				033835462617FEE200D6725C /* Bip39CrypterTests.xctest */,
+				033835512617FEE200D6725C /* Bip39CrypterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		033835332617FEE100D6725C /* Bip39Crypter */ = {
+			isa = PBXGroup;
+			children = (
+				033835342617FEE100D6725C /* AppDelegate.swift */,
+				033835362617FEE100D6725C /* ViewController.swift */,
+				0338353B2617FEE200D6725C /* Assets.xcassets */,
+				0338353D2617FEE200D6725C /* Main.storyboard */,
+				033835402617FEE200D6725C /* Info.plist */,
+				033835412617FEE200D6725C /* Bip39Crypter.entitlements */,
+				033835382617FEE100D6725C /* Bip39Crypter.xcdatamodeld */,
+			);
+			path = Bip39Crypter;
+			sourceTree = "<group>";
+		};
+		033835492617FEE200D6725C /* Bip39CrypterTests */ = {
+			isa = PBXGroup;
+			children = (
+				0338354A2617FEE200D6725C /* Bip39CrypterTests.swift */,
+				0338354C2617FEE200D6725C /* Info.plist */,
+			);
+			path = Bip39CrypterTests;
+			sourceTree = "<group>";
+		};
+		033835542617FEE200D6725C /* Bip39CrypterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				033835552617FEE200D6725C /* Bip39CrypterUITests.swift */,
+				033835572617FEE200D6725C /* Info.plist */,
+			);
+			path = Bip39CrypterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		033835302617FEE100D6725C /* Bip39Crypter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0338355A2617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39Crypter" */;
+			buildPhases = (
+				0338352D2617FEE100D6725C /* Sources */,
+				0338352E2617FEE100D6725C /* Frameworks */,
+				0338352F2617FEE100D6725C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bip39Crypter;
+			productName = Bip39Crypter;
+			productReference = 033835312617FEE100D6725C /* Bip39Crypter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		033835452617FEE200D6725C /* Bip39CrypterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0338355D2617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39CrypterTests" */;
+			buildPhases = (
+				033835422617FEE200D6725C /* Sources */,
+				033835432617FEE200D6725C /* Frameworks */,
+				033835442617FEE200D6725C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				033835482617FEE200D6725C /* PBXTargetDependency */,
+			);
+			name = Bip39CrypterTests;
+			productName = Bip39CrypterTests;
+			productReference = 033835462617FEE200D6725C /* Bip39CrypterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		033835502617FEE200D6725C /* Bip39CrypterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 033835602617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39CrypterUITests" */;
+			buildPhases = (
+				0338354D2617FEE200D6725C /* Sources */,
+				0338354E2617FEE200D6725C /* Frameworks */,
+				0338354F2617FEE200D6725C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				033835532617FEE200D6725C /* PBXTargetDependency */,
+			);
+			name = Bip39CrypterUITests;
+			productName = Bip39CrypterUITests;
+			productReference = 033835512617FEE200D6725C /* Bip39CrypterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		033835292617FEE100D6725C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					033835302617FEE100D6725C = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					033835452617FEE200D6725C = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 033835302617FEE100D6725C;
+					};
+					033835502617FEE200D6725C = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 033835302617FEE100D6725C;
+					};
+				};
+			};
+			buildConfigurationList = 0338352C2617FEE100D6725C /* Build configuration list for PBXProject "Bip39Crypter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 033835282617FEE100D6725C;
+			productRefGroup = 033835322617FEE100D6725C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				033835302617FEE100D6725C /* Bip39Crypter */,
+				033835452617FEE200D6725C /* Bip39CrypterTests */,
+				033835502617FEE200D6725C /* Bip39CrypterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0338352F2617FEE100D6725C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0338353C2617FEE200D6725C /* Assets.xcassets in Resources */,
+				0338353F2617FEE200D6725C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		033835442617FEE200D6725C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0338354F2617FEE200D6725C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0338352D2617FEE100D6725C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0338353A2617FEE100D6725C /* Bip39Crypter.xcdatamodeld in Sources */,
+				033835372617FEE100D6725C /* ViewController.swift in Sources */,
+				033835352617FEE100D6725C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		033835422617FEE200D6725C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0338354B2617FEE200D6725C /* Bip39CrypterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0338354D2617FEE200D6725C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				033835562617FEE200D6725C /* Bip39CrypterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		033835482617FEE200D6725C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 033835302617FEE100D6725C /* Bip39Crypter */;
+			targetProxy = 033835472617FEE200D6725C /* PBXContainerItemProxy */;
+		};
+		033835532617FEE200D6725C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 033835302617FEE100D6725C /* Bip39Crypter */;
+			targetProxy = 033835522617FEE200D6725C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0338353D2617FEE200D6725C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0338353E2617FEE200D6725C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		033835582617FEE200D6725C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		033835592617FEE200D6725C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0338355B2617FEE200D6725C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bip39Crypter/Bip39Crypter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39Crypter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39Crypter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0338355C2617FEE200D6725C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bip39Crypter/Bip39Crypter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39Crypter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39Crypter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0338355E2617FEE200D6725C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39CrypterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39CrypterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bip39Crypter.app/Contents/MacOS/Bip39Crypter";
+			};
+			name = Debug;
+		};
+		0338355F2617FEE200D6725C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39CrypterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39CrypterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bip39Crypter.app/Contents/MacOS/Bip39Crypter";
+			};
+			name = Release;
+		};
+		033835612617FEE200D6725C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39CrypterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39CrypterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Bip39Crypter;
+			};
+			name = Debug;
+		};
+		033835622617FEE200D6725C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Bip39CrypterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jki.Bip39CrypterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Bip39Crypter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0338352C2617FEE100D6725C /* Build configuration list for PBXProject "Bip39Crypter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				033835582617FEE200D6725C /* Debug */,
+				033835592617FEE200D6725C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0338355A2617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39Crypter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0338355B2617FEE200D6725C /* Debug */,
+				0338355C2617FEE200D6725C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0338355D2617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39CrypterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0338355E2617FEE200D6725C /* Debug */,
+				0338355F2617FEE200D6725C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		033835602617FEE200D6725C /* Build configuration list for PBXNativeTarget "Bip39CrypterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				033835612617FEE200D6725C /* Debug */,
+				033835622617FEE200D6725C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		033835382617FEE100D6725C /* Bip39Crypter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				033835392617FEE100D6725C /* Bip39Crypter.xcdatamodel */,
+			);
+			currentVersion = 033835392617FEE100D6725C /* Bip39Crypter.xcdatamodel */;
+			path = Bip39Crypter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 033835292617FEE100D6725C /* Project object */;
+}
