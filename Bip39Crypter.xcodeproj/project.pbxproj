@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0336A433261BC58F000BE7CE /* TinyHashes in Frameworks */ = {isa = PBXBuildFile; productRef = 0336A432261BC58F000BE7CE /* TinyHashes */; };
 		033835352617FEE100D6725C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835342617FEE100D6725C /* AppDelegate.swift */; };
 		033835372617FEE100D6725C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835362617FEE100D6725C /* ViewController.swift */; };
 		0338353A2617FEE100D6725C /* Bip39Crypter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 033835382617FEE100D6725C /* Bip39Crypter.xcdatamodeld */; };
@@ -14,6 +15,8 @@
 		0338353F2617FEE200D6725C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0338353D2617FEE200D6725C /* Main.storyboard */; };
 		0338354B2617FEE200D6725C /* Bip39CrypterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338354A2617FEE200D6725C /* Bip39CrypterTests.swift */; };
 		033835562617FEE200D6725C /* Bip39CrypterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835552617FEE200D6725C /* Bip39CrypterUITests.swift */; };
+		03A482CD261A4E05000409A4 /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = 03A482CC261A4E05000409A4 /* Clibsodium */; };
+		03A482CF261A4E05000409A4 /* Sodium in Frameworks */ = {isa = PBXBuildFile; productRef = 03A482CE261A4E05000409A4 /* Sodium */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,19 @@
 			remoteInfo = Bip39Crypter;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03A482A5261A4B39000409A4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		033835312617FEE100D6725C /* Bip39Crypter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bip39Crypter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A482CD261A4E05000409A4 /* Clibsodium in Frameworks */,
+				03A482CF261A4E05000409A4 /* Sodium in Frameworks */,
+				0336A433261BC58F000BE7CE /* TinyHashes in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +101,7 @@
 				033835492617FEE200D6725C /* Bip39CrypterTests */,
 				033835542617FEE200D6725C /* Bip39CrypterUITests */,
 				033835322617FEE100D6725C /* Products */,
+				03A48291261A49E8000409A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +147,13 @@
 			path = Bip39CrypterUITests;
 			sourceTree = "<group>";
 		};
+		03A48291261A49E8000409A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +164,18 @@
 				0338352D2617FEE100D6725C /* Sources */,
 				0338352E2617FEE100D6725C /* Frameworks */,
 				0338352F2617FEE100D6725C /* Resources */,
+				03A482A5261A4B39000409A4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Bip39Crypter;
+			packageProductDependencies = (
+				03A482CC261A4E05000409A4 /* Clibsodium */,
+				03A482CE261A4E05000409A4 /* Sodium */,
+				0336A432261BC58F000BE7CE /* TinyHashes */,
+			);
 			productName = Bip39Crypter;
 			productReference = 033835312617FEE100D6725C /* Bip39Crypter.app */;
 			productType = "com.apple.product-type.application";
@@ -206,7 +239,7 @@
 				};
 			};
 			buildConfigurationList = 0338352C2617FEE100D6725C /* Build configuration list for PBXProject "Bip39Crypter" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -214,6 +247,10 @@
 				Base,
 			);
 			mainGroup = 033835282617FEE100D6725C;
+			packageReferences = (
+				03A482CB261A4E05000409A4 /* XCRemoteSwiftPackageReference "swift-sodium" */,
+				0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */,
+			);
 			productRefGroup = 033835322617FEE100D6725C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -426,8 +463,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bip39Crypter/Bip39Crypter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Bip39Crypter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,8 +484,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bip39Crypter/Bip39Crypter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Bip39Crypter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,6 +619,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ralfebert/TinyHashes";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		03A482CB261A4E05000409A4 /* XCRemoteSwiftPackageReference "swift-sodium" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jedisct1/swift-sodium.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0336A432261BC58F000BE7CE /* TinyHashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */;
+			productName = TinyHashes;
+		};
+		03A482CC261A4E05000409A4 /* Clibsodium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03A482CB261A4E05000409A4 /* XCRemoteSwiftPackageReference "swift-sodium" */;
+			productName = Clibsodium;
+		};
+		03A482CE261A4E05000409A4 /* Sodium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03A482CB261A4E05000409A4 /* XCRemoteSwiftPackageReference "swift-sodium" */;
+			productName = Sodium;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		033835382617FEE100D6725C /* Bip39Crypter.xcdatamodeld */ = {
