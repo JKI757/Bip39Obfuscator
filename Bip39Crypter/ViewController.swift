@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var bip3924WordField: NSTextField!
     @IBOutlet weak var outtputBip3924WordField: NSTextField!
     @IBOutlet weak var keyField: NSTextField!
+    @IBOutlet weak var outputCzechBip39Field: NSTextField!
+    @IBOutlet weak var inputCzechBip39Field: NSTextField!
     let sodium = Sodium();
 
     let englishBip39 = [
@@ -4129,7 +4131,7 @@ class ViewController: NSViewController {
 
     @IBAction func encryptButtonClicked(_ sender: Any) {
 
-        outtputBip3924WordField.stringValue = encrypt(inputWords: bip3924WordField.stringValue, key: keyField.stringValue);
+        (outtputBip3924WordField.stringValue,outputCzechBip39Field.stringValue)  = encrypt(inputWords: bip3924WordField.stringValue, key: keyField.stringValue);
 
 
 
@@ -4159,7 +4161,7 @@ class ViewController: NSViewController {
         keyField.stringValue = "";
         bip3924WordField.stringValue = "";
         outtputBip3924WordField.stringValue = "";
-
+        outputCzechBip39Field.stringValue = "";
     }
 
     func stripKey(key:[UInt8]) -> [UInt8]{
@@ -4179,29 +4181,47 @@ class ViewController: NSViewController {
         }
         return strippedKey;
     }
+    func keySanitize(key:String)->String{
 
+        //test for bad characters, test for length (must be 32 bits exactly)
+        //expand or truncate if necessary
+
+        return key;
+    }
     func keyExpand(key:String)->[UInt8]{
-
-        let subKey1 = sodium.keyDerivation.derive(secretKey: key.bytes, index: 0, length: 32 ,context: "Context!");
-        let subKey2 = sodium.keyDerivation.derive(secretKey: key.bytes, index: 1, length: 32 ,context: "Context!");
+        let sanitizedKey = keySanitize(key: key);
+        let subKey1 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 0, length: 32 ,context: "Context!")!;
+        let subKey2 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 1, length: 32 ,context: "Context!")!;
         //  The '!' kills the program if this function returns nil
-        let keyBytes1 = stripKey(key:subKey1!);
-        let keyBytes2 = stripKey(key:subKey2!);
+        let keyBytes1 = stripKey(key:subKey1);
+        let keyBytes2 = stripKey(key:subKey2);
         let keyBytes = keyBytes1 + keyBytes2;
 
         return keyBytes;
     }
 
-    func computeChecksum(key:[Int]) -> UInt8{
+    func computeChecksum(key:[UInt16]) -> UInt16{
 
         let string = "The quick brown fox jumps over the lazy dog"
         let data = string.data(using: .ascii)!;
         let hexDigest = data.sha256;
 
+        var accum:UInt16 = 1;
+        for num in key{
+            accum *= num;
+        }
+        accum = accum/256;
+
+
+//        h=hashlib.sha256(binascii.unhexlify('%064x' % accum)).digest().encode('hex')
+//        int(('%064x' % accum)[-1] + h[:2], 16) % 2048
+
+
         return 0;
     }
-    func encrypt(inputWords: String, key: String ) -> String {
+    func encrypt(inputWords: String, key: String ) -> (String, String) {
         var retString = "";
+        var czechRetString = "";
         var strippedInputWords = inputWords.trimmingCharacters(in: [" "]);
         let inputWordsArray = strippedInputWords.components(separatedBy: " ");
         var outputWordsArray:[UInt8] = [];
@@ -4218,6 +4238,11 @@ class ViewController: NSViewController {
                 //we have to split the index value here as the maximum index is 2048
                 //Note the & 0x07 to strip the upper bits.  We do the same
                 //in key generation.
+            }else if let index:Int = czechBip39.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordsArray.append(UInt8(highByte));
+                outputWordsArray.append(UInt8(lowerByte));
             }else{
                 //essentially we have to crash here because we have an invalid word in the input
             }
@@ -4246,12 +4271,12 @@ class ViewController: NSViewController {
 
         for word in encryptedIndices{
             retString += englishBip39[Int(word)];
+            czechRetString += czechBip39[Int(word)];
             retString += " ";
-
+            czechRetString += " " ;
         }
-//        outtputBip3924WordField.stringValue = retString;
 
-        return retString;
+        return (retString, czechRetString);
     }
 
 
