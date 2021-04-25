@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Sodium",
+        "repositoryURL": "https://github.com/jedisct1/swift-sodium.git",
+        "state": {
+          "branch": null,
+          "revision": "4f9164a0a2c9a6a7ff53a2833d54a5c79c957342",
+          "version": "0.9.1"
+        }
+      },
+      {
+        "package": "TinyHashes",
+        "repositoryURL": "https://github.com/ralfebert/TinyHashes",
+        "state": {
+          "branch": "master",
+          "revision": "1c5569fe6e9bfa1b7d98f05024f6334d1e1c3c48",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

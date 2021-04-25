@@ -4186,12 +4186,26 @@ class ViewController: NSViewController {
         //test for bad characters, test for length (must be 32 bits exactly)
         //expand or truncate if necessary
 
+
+
+
         return key;
     }
-    func keyExpand(key:String)->[UInt8]{
+
+    enum keyError: Error {
+        case keyTooShort
+    }
+
+    func keyExpand(key:String) throws ->[UInt8]{
         let sanitizedKey = keySanitize(key: key);
-        let subKey1 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 0, length: 32 ,context: "Context!")!;
-        let subKey2 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 1, length: 32 ,context: "Context!")!;
+        let defaultSubKey: [UInt8] = [UInt8(0x00)];
+        let subKey1 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 0, length: 32 ,context: "Context!") ?? defaultSubKey;
+        let subKey2 = sodium.keyDerivation.derive(secretKey: sanitizedKey.bytes, index: 1, length: 32 ,context: "Context!") ?? defaultSubKey;
+
+        if (subKey1.count == 1 || subKey2.count == 1){
+            throw keyError.keyTooShort;
+        }
+
         //  The '!' kills the program if this function returns nil
         let keyBytes1 = stripKey(key:subKey1);
         let keyBytes2 = stripKey(key:subKey2);
@@ -4247,35 +4261,37 @@ class ViewController: NSViewController {
                 //essentially we have to crash here because we have an invalid word in the input
             }
         }//this only gives us 48 bytes, we need to expand to 64 bytes here, add another 16 bytes of padding.
+        do {
+            let keyBytes = try keyExpand(key: key);
+            let result = outputWordsArray.enumerated().map {$0.element ^ keyBytes[$0.offset]}
+            //xor the words and the key
 
-        let keyBytes = keyExpand(key: key);
+            // put the bytes back together here.  gaagh:
+            var encryptedIndices:[UInt16] = [];
+            var temp:UInt16 = 0;
+            for (index, element) in result.enumerated(){
+                if (index % 2 == 0){
+                    temp = UInt16(element)<<8;
+                }else{
+                    temp = temp | ( UInt16(element));
+                    encryptedIndices.append(temp);
+                    temp = 0;
+                }
 
-        let result = outputWordsArray.enumerated().map {$0.element ^ keyBytes[$0.offset]}
-        //xor the words and the key
-
-        // put the bytes back together here.  gaagh:
-        var encryptedIndices:[UInt16] = [];
-        var temp:UInt16 = 0;
-        for (index, element) in result.enumerated(){
-            if (index % 2 == 0){
-                temp = UInt16(element)<<8;
-            }else{
-                temp = temp | ( UInt16(element));
-                encryptedIndices.append(temp);
-                temp = 0;
             }
 
+
+
+            for word in encryptedIndices{
+                retString += englishBip39[Int(word)];
+                czechRetString += czechBip39[Int(word)];
+                retString += " ";
+                czechRetString += " " ;
+            }
+        }catch {
+            retString = "key Error -- likely Key is too short or unable to be used for some reason"
+
         }
-
-
-
-        for word in encryptedIndices{
-            retString += englishBip39[Int(word)];
-            czechRetString += czechBip39[Int(word)];
-            retString += " ";
-            czechRetString += " " ;
-        }
-
         return (retString, czechRetString);
     }
 

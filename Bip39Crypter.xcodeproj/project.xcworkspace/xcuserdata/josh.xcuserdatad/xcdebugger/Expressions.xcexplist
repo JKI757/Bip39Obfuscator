@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "KeyDerivation.derive(secretKey:index:length:context:):KeyDerivation.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " secretKey.count == KeyBytes">
+            </PersistentString>
+            <PersistentString
+               value = "BytesMin">
+            </PersistentString>
+            <PersistentString
+               value = "KeyBytes">
+            </PersistentString>
+            <PersistentString
+               value = "BytesMax">
+            </PersistentString>
+            <PersistentString
+               value = "ContextBytes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Stream.xor(input:secretKey:):Stream.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "input">
+            </PersistentString>
+            <PersistentString
+               value = "secretKey">
+            </PersistentString>
+            <PersistentString
+               value = "xor(input: input, nonce:nonce, secretKey:secretKey)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.encrypt(inputWords:key:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UInt16(element) &lt;&lt; 8">
+            </PersistentString>
+            <PersistentString
+               value = "(4 &lt;&lt; 8) &amp; 0xFF00">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.keyExpand(key:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "key.bytes">
+            </PersistentString>
+            <PersistentString
+               value = "sodium.keyDerivation.derive">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Stream.xor(input:nonce:secretKey:):Stream.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "secretKey.count == KeyBytes">
+            </PersistentString>
+            <PersistentString
+               value = "nonce.count == NonceBytes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
