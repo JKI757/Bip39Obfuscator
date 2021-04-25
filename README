@@ -1,0 +1,13 @@
+*****  USE THIS AT YOUR OWN RISK *****
+Never enter your 24 word seed into a computer that's on the internet or ever will be on the internet again.
+
+If you use this and mess it up, you will lose everything that depends on it.  
+
+This is an obfuscator and not an encryptor.  Understand the difference, read the code and understand it before you try to use this.
+
+This code makes no attempt to sanitize memory either during use or after use.  Again -- use at your own risk.  
+
+This is a relatively untested Mac application I wrote as a hobby solely to get some practice working with Swift and Mac applications.  Its purpose is to obfuscate a 24 word seed using a key provided by the user.  It is fully reversible given the same key.  It does not at this time handle computation of the 24th word checksum, and does not address 25th word passphrases at all. 
+
+The generate button creates a 24 word seed and a key, the encrypt button generates two different passphrases based on those things.  If you put either of those passphrases back into the left side input box, you will get back the original passphrase.  It uses libsodium for key derivation.  Your key must be exactly 32 characters if you choose to enter one yourself.  The key generation uses Swift's random functions, so again, you must decide if that's good enough for you.  Use at your own risk!
+
