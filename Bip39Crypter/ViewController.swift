@@ -4144,15 +4144,13 @@ class ViewController: NSViewController {
         let randomWordIndexList = (1...24).map( {_ in Int.random(in: 0...2047)} );
         var keyWordArray:String = "";
         for index in randomWordIndexList{
-            keyWordArray += " ";
             keyWordArray += englishBip39[index];
+            keyWordArray += " ";
         }
-        bip3924WordField.stringValue = keyWordArray;
+        bip3924WordField.stringValue = keyWordArray.trimmingCharacters(in: .whitespaces);
 
-        let randomKey = (1...32).map( {_ in UInt8.random(in: 33...126)} );
-        var keyString:String = String(bytes: randomKey,encoding: .ascii) ?? "";
+        keyField.stringValue = (String(bytes: (1...32).map( {_ in UInt8.random(in: 33...126)} ),encoding: .ascii) ?? "").trimmingCharacters(in: .whitespaces);
 
-        keyField.stringValue = keyString;
     }
 
 
