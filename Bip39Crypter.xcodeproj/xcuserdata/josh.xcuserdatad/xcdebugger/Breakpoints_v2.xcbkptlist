@@ -14,8 +14,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4134"
-            endingLineNumber = "4134"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "encryptButtonClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4263"
-            endingLineNumber = "4263"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "encrypt(inputWords:key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4238"
-            endingLineNumber = "4238"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "encrypt(inputWords:key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4263"
-            endingLineNumber = "4263"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "encrypt(inputWords:key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4270"
-            endingLineNumber = "4270"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "encrypt(inputWords:key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Bip39Crypter/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4208"
-            endingLineNumber = "4208"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "keyExpand(key:)"
             landmarkType = "7">
          </BreakpointContent>

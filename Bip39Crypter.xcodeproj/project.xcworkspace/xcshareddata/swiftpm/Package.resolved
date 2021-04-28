@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "BIP39",
+        "repositoryURL": "https://github.com/JKI757/BIP39",
+        "state": {
+          "branch": null,
+          "revision": "a0475911f0b70d843e98bf933a17f80871130ec2",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "Sodium",
         "repositoryURL": "https://github.com/jedisct1/swift-sodium.git",
         "state": {

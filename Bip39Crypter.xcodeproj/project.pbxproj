@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0303ED862638E94100F0FAAA /* BIP39 in Frameworks */ = {isa = PBXBuildFile; productRef = 0303ED852638E94100F0FAAA /* BIP39 */; };
 		0336A433261BC58F000BE7CE /* TinyHashes in Frameworks */ = {isa = PBXBuildFile; productRef = 0336A432261BC58F000BE7CE /* TinyHashes */; };
 		033835352617FEE100D6725C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835342617FEE100D6725C /* AppDelegate.swift */; };
 		033835372617FEE100D6725C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033835362617FEE100D6725C /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0303ED862638E94100F0FAAA /* BIP39 in Frameworks */,
 				03A482CD261A4E05000409A4 /* Clibsodium in Frameworks */,
 				03A482CF261A4E05000409A4 /* Sodium in Frameworks */,
 				0336A433261BC58F000BE7CE /* TinyHashes in Frameworks */,
@@ -175,6 +177,7 @@
 				03A482CC261A4E05000409A4 /* Clibsodium */,
 				03A482CE261A4E05000409A4 /* Sodium */,
 				0336A432261BC58F000BE7CE /* TinyHashes */,
+				0303ED852638E94100F0FAAA /* BIP39 */,
 			);
 			productName = Bip39Crypter;
 			productReference = 033835312617FEE100D6725C /* Bip39Crypter.app */;
@@ -250,6 +253,7 @@
 			packageReferences = (
 				03A482CB261A4E05000409A4 /* XCRemoteSwiftPackageReference "swift-sodium" */,
 				0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */,
+				0303ED842638E94100F0FAAA /* XCRemoteSwiftPackageReference "BIP39" */,
 			);
 			productRefGroup = 033835322617FEE100D6725C /* Products */;
 			projectDirPath = "";
@@ -621,6 +625,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0303ED842638E94100F0FAAA /* XCRemoteSwiftPackageReference "BIP39" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JKI757/BIP39";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ralfebert/TinyHashes";
@@ -640,6 +652,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0303ED852638E94100F0FAAA /* BIP39 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0303ED842638E94100F0FAAA /* XCRemoteSwiftPackageReference "BIP39" */;
+			productName = BIP39;
+		};
 		0336A432261BC58F000BE7CE /* TinyHashes */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0336A431261BC58F000BE7CE /* XCRemoteSwiftPackageReference "TinyHashes" */;
