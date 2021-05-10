@@ -46,6 +46,7 @@ class ViewController: NSViewController {
         keyField.stringValue = (String(bytes: (1...32).map( {_ in UInt8.random(in: 33...126)} ),encoding: .ascii) ?? "").trimmingCharacters(in: .whitespaces);
 
         bip3924WordField.stringValue = mnemonic.phrase.joined(separator: " ");
+        //mnemonic.phrase returns a randomly generated array of 24 words -- this is generated in the constructor call above.
 
     }
 
@@ -107,32 +108,39 @@ class ViewController: NSViewController {
         return keyBytes;
     }
 
-    func computeChecksum(key:[UInt16]) -> UInt16{
+//    func getChecksumWordFromPhrase(_ phrase: [String], wordlist: [String] = Wordlists.english) throws -> String {
+//        let bits = phrase.map { (word) -> String in
+//            let index = wordlist.firstIndex(of: word)!
+//            var str = String(index, radix:2)
+//            while str.count < 11 {
+//                str = "0" + str
+//            }
+//            return str
+//        }.joined(separator: "")
+//
+//        let dividerIndex = Int(Double(bits.count / 33).rounded(.down) * 32)
+//        let entropyBits = String(bits.prefix(dividerIndex))
+//
+//        let regex = try! NSRegularExpression(pattern: "[01]{1,8}", options: .caseInsensitive)
+//        let entropyBytes = regex.matches(in: entropyBits, options: [], range: NSRange(location: 0, length: entropyBits.count)).map {
+//            UInt8(strtoul(String(entropyBits[Range($0.range, in: entropyBits)!]), nil, 2))
+//        }
+//        let checksum = Mnemonic.deriveChecksumBits(entropyBytes);
+//        //TODO: figure out exactly what is coming back from derivechecksum bits,
+//        //then we need to convert that to bytes and then from there to a valid bip39 word
+//        let l = Int(strtoul(checksum, nil, 2));
+//        return wordlist[l];
+//    }
 
-        let string = "The quick brown fox jumps over the lazy dog"
-        let data = string.data(using: .ascii)!;
-        let hexDigest = data.sha256;
 
-        var accum:UInt16 = 1;
-        for num in key{
-            accum *= num;
-        }
-        accum = accum/256;
-
-
-//        h=hashlib.sha256(binascii.unhexlify('%064x' % accum)).digest().encode('hex')
-//        int(('%064x' % accum)[-1] + h[:2], 16) % 2048
-
-
-        return 0;
-    }
     func encrypt(inputWords: String, key: String ) -> (String, String) {
         var retString = "";
         var czechRetString = "";
-        var strippedInputWords = inputWords.trimmingCharacters(in: [" "]);
+        let strippedInputWords = inputWords.trimmingCharacters(in: [" "]);
         let inputWordsArray = strippedInputWords.components(separatedBy: " ");
-        var outputWordsArray:[UInt8] = [];
-
+        var outputWordIndicesArray:[UInt8] = [];
+        var englishWordArray : [String] = [];
+        var czechWordArray : [String] = [];
 
         for word in inputWordsArray{
 
@@ -140,23 +148,23 @@ class ViewController: NSViewController {
 
                 let lowerByte = index & 0xFF;
                 let highByte = (index>>8) & 0x07;
-                outputWordsArray.append(UInt8(highByte));
-                outputWordsArray.append(UInt8(lowerByte));
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
                 //we have to split the index value here as the maximum index is 2048
                 //Note the & 0x07 to strip the upper bits.  We do the same
                 //in key generation.
             }else if let index:Int = Wordlists.czech.firstIndex(of: word){
                 let lowerByte = index & 0xFF;
                 let highByte = (index>>8) & 0x07;
-                outputWordsArray.append(UInt8(highByte));
-                outputWordsArray.append(UInt8(lowerByte));
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
             }else{
                 //essentially we have to crash here because we have an invalid word in the input
             }
         }//this only gives us 48 bytes, we need to expand to 64 bytes here, add another 16 bytes of padding.
         do {
             let keyBytes = try keyExpand(key: key);
-            let result = outputWordsArray.enumerated().map {$0.element ^ keyBytes[$0.offset]}
+            let result = outputWordIndicesArray.enumerated().map {$0.element ^ keyBytes[$0.offset]}
             //xor the words and the key
 
             // put the bytes back together here.  gaagh:
@@ -173,7 +181,17 @@ class ViewController: NSViewController {
 
             }
 
+            for word in encryptedIndices{
+                englishWordArray.append(Wordlists.english[Int(word)]);
+                czechWordArray.append(Wordlists.czech[Int(word)])
+            }
 
+            do {
+                englishWordArray[englishWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(englishWordArray);
+                czechWordArray[czechWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(czechWordArray, wordlist: Wordlists.czech);
+            }catch{
+
+            }
 
             for word in encryptedIndices{
                 retString += Wordlists.english[Int(word)];
@@ -181,10 +199,9 @@ class ViewController: NSViewController {
                 retString += " ";
                 czechRetString += " " ;
             }
-        }catch {
-            retString = "key Error -- likely Key is too short or unable to be used for some reason"
 
-        }
+        }catch {retString = "key Error -- likely Key is too short or unable to be used for some reason"}
+
         return (retString, czechRetString);
     }
 

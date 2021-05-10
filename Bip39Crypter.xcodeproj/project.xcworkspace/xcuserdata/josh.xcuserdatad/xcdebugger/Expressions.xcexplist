@@ -3,22 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "KeyDerivation.derive(secretKey:index:length:context:):KeyDerivation.swift">
+         contextName = "Stream.xor(input:nonce:secretKey:):Stream.swift">
          <PersistentStrings>
             <PersistentString
-               value = " secretKey.count == KeyBytes">
+               value = "secretKey.count == KeyBytes">
             </PersistentString>
             <PersistentString
-               value = "BytesMin">
-            </PersistentString>
-            <PersistentString
-               value = "KeyBytes">
-            </PersistentString>
-            <PersistentString
-               value = "BytesMax">
-            </PersistentString>
-            <PersistentString
-               value = "ContextBytes">
+               value = "nonce.count == NonceBytes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,6 +36,37 @@
             <PersistentString
                value = "(4 &lt;&lt; 8) &amp; 0xFF00">
             </PersistentString>
+            <PersistentString
+               value = "i">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.getCheckSum(_:wordlist:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Int(checksum)!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeyDerivation.derive(secretKey:index:length:context:):KeyDerivation.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "BytesMin">
+            </PersistentString>
+            <PersistentString
+               value = " secretKey.count == KeyBytes">
+            </PersistentString>
+            <PersistentString
+               value = "ContextBytes">
+            </PersistentString>
+            <PersistentString
+               value = "BytesMax">
+            </PersistentString>
+            <PersistentString
+               value = "KeyBytes">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -55,17 +77,6 @@
             </PersistentString>
             <PersistentString
                value = "sodium.keyDerivation.derive">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Stream.xor(input:nonce:secretKey:):Stream.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "secretKey.count == KeyBytes">
-            </PersistentString>
-            <PersistentString
-               value = "nonce.count == NonceBytes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
