@@ -23,12 +23,16 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var debugOutputField: NSTextField!
 
+    @IBOutlet weak var LanguageSelectorPopUpButton: NSPopUpButton!
+
     let sodium = Sodium();
     let mnemonic =  Mnemonic(strength: 256, wordlist: Wordlists.english);
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LanguageSelectorPopUpButton.addItems(withTitles: ["English", "Chinese", "Czech", "Japanese", "Korean", "Spanish", "French", "Italian", "Portuguese"]);
 
         // Do any additional setup after loading the view.
     }
@@ -108,39 +112,17 @@ class ViewController: NSViewController {
         return keyBytes;
     }
 
-//    func getChecksumWordFromPhrase(_ phrase: [String], wordlist: [String] = Wordlists.english) throws -> String {
-//        let bits = phrase.map { (word) -> String in
-//            let index = wordlist.firstIndex(of: word)!
-//            var str = String(index, radix:2)
-//            while str.count < 11 {
-//                str = "0" + str
-//            }
-//            return str
-//        }.joined(separator: "")
-//
-//        let dividerIndex = Int(Double(bits.count / 33).rounded(.down) * 32)
-//        let entropyBits = String(bits.prefix(dividerIndex))
-//
-//        let regex = try! NSRegularExpression(pattern: "[01]{1,8}", options: .caseInsensitive)
-//        let entropyBytes = regex.matches(in: entropyBits, options: [], range: NSRange(location: 0, length: entropyBits.count)).map {
-//            UInt8(strtoul(String(entropyBits[Range($0.range, in: entropyBits)!]), nil, 2))
-//        }
-//        let checksum = Mnemonic.deriveChecksumBits(entropyBytes);
-//        //TODO: figure out exactly what is coming back from derivechecksum bits,
-//        //then we need to convert that to bytes and then from there to a valid bip39 word
-//        let l = Int(strtoul(checksum, nil, 2));
-//        return wordlist[l];
-//    }
-
-
     func encrypt(inputWords: String, key: String ) -> (String, String) {
         var retString = "";
-        var czechRetString = "";
+        var secondaryRetString = "";
         let strippedInputWords = inputWords.trimmingCharacters(in: [" "]);
         let inputWordsArray = strippedInputWords.components(separatedBy: " ");
         var outputWordIndicesArray:[UInt8] = [];
         var englishWordArray : [String] = [];
         var czechWordArray : [String] = [];
+
+        var secondaryWordArray : [String] = [];
+
 
         for word in inputWordsArray{
 
@@ -158,8 +140,43 @@ class ViewController: NSViewController {
                 let highByte = (index>>8) & 0x07;
                 outputWordIndicesArray.append(UInt8(highByte));
                 outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.chinese.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.japanese.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.korean.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.spanish.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.french.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.italian.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
+            }else if let index:Int = Wordlists.portuguese.firstIndex(of: word){
+                let lowerByte = index & 0xFF;
+                let highByte = (index>>8) & 0x07;
+                outputWordIndicesArray.append(UInt8(highByte));
+                outputWordIndicesArray.append(UInt8(lowerByte));
             }else{
-                //essentially we have to crash here because we have an invalid word in the input
+            //crash because we can't find the word in any dictionary.
             }
         }//this only gives us 48 bytes, we need to expand to 64 bytes here, add another 16 bytes of padding.
         do {
@@ -178,31 +195,68 @@ class ViewController: NSViewController {
                     encryptedIndices.append(temp);
                     temp = 0;
                 }
-
             }
 
             for word in encryptedIndices{
                 englishWordArray.append(Wordlists.english[Int(word)]);
-                czechWordArray.append(Wordlists.czech[Int(word)])
+                switch(LanguageSelectorPopUpButton.indexOfSelectedItem){
+                    case 0: secondaryWordArray.append(Wordlists.english[Int(word)]);
+                    case 1:secondaryWordArray.append(Wordlists.chinese[Int(word)]);
+                    case 2:secondaryWordArray.append(Wordlists.czech[Int(word)]);
+                    case 3:secondaryWordArray.append(Wordlists.japanese[Int(word)]);
+                    case 4:secondaryWordArray.append(Wordlists.korean[Int(word)]);
+                    case 5:secondaryWordArray.append(Wordlists.spanish[Int(word)]);
+                    case 6:secondaryWordArray.append(Wordlists.french[Int(word)]);
+                    case 7:secondaryWordArray.append(Wordlists.italian[Int(word)]);
+                    case 8:secondaryWordArray.append(Wordlists.portuguese[Int(word)]);
+                    default: let _ = 0&0;
+                }
             }
 
             do {
                 englishWordArray[englishWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(englishWordArray);
-                czechWordArray[czechWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(czechWordArray, wordlist: Wordlists.czech);
+
+
+                switch(LanguageSelectorPopUpButton.indexOfSelectedItem){
+                    case 0:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.english);
+                    case 1:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.chinese);
+                    case 2:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.czech);
+                    case 3:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.japanese);
+                    case 4:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.korean);
+                    case 5:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.spanish);
+                    case 6:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.french);
+                    case 7:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.italian);
+                    case 8:secondaryWordArray[secondaryWordArray.count-1] = try Mnemonic.getChecksumWordFromPhrase(secondaryWordArray, wordlist: Wordlists.portuguese);
+                    default: let _ = 0&0;
+                }
+
+
+
             }catch{
 
             }
 
             for word in encryptedIndices{
                 retString += Wordlists.english[Int(word)];
-                czechRetString += Wordlists.czech[Int(word)];
+                switch(LanguageSelectorPopUpButton.indexOfSelectedItem){
+                    case 0: secondaryRetString += Wordlists.english[Int(word)];
+                    case 1:secondaryRetString += Wordlists.chinese[Int(word)];
+                    case 2:secondaryRetString += Wordlists.czech[Int(word)];
+                    case 3:secondaryRetString += Wordlists.japanese[Int(word)];
+                    case 4:secondaryRetString += Wordlists.korean[Int(word)];
+                    case 5:secondaryRetString += Wordlists.spanish[Int(word)];
+                    case 6:secondaryRetString += Wordlists.french[Int(word)];
+                    case 7:secondaryRetString += Wordlists.italian[Int(word)];
+                    case 8:secondaryRetString += Wordlists.portuguese[Int(word)];
+                    default: let _ = 0&0;
+                }
                 retString += " ";
-                czechRetString += " " ;
+                secondaryRetString += " " ;
             }
 
         }catch {retString = "key Error -- likely Key is too short or unable to be used for some reason"}
 
-        return (retString, czechRetString);
+        return (retString, secondaryRetString);
     }
 
 
