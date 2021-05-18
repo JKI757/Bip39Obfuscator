@@ -25,6 +25,8 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var LanguageSelectorPopUpButton: NSPopUpButton!
 
+    @IBOutlet weak var aboutMenuItem: NSMenuItem!
+    
     let sodium = Sodium();
     let mnemonic =  Mnemonic(strength: 256, wordlist: Wordlists.english);
 
